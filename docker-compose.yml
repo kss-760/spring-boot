@@ -1,0 +1,25 @@
+version: '3.1'
+
+services:
+  container:
+    image: kishoreyuva50/new:1
+    ports:
+    - 9999:8080
+    container_name: newcontainer
+
+
+  database:
+    image: mongo
+    container_name: mongo
+    volumes:
+    - storage1:/data/db
+
+networks:
+  default:
+   external:
+    name: newnetwork1
+
+volumes:
+  storage1:
+    external: true
+
